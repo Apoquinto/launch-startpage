@@ -1,15 +1,37 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600&display=swap');
 :root {
     font-family: 'Rubik', sans-serif;
+    --primary: #5e81ac;
+    --text: #eceff4;
+    --background: #2e3440;
+    --background-contrast: #3b4252;
 }
 
-html {
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+    color: var(--text);
     width: 100wh;
     height: 100vh;
+    background-color: var(--background);
+    display: grid;
+    place-items: center;
 }
 
+main {
+    width: 100%;
+    height: 100%;
+    max-width: 1280px;
+}
 
 .clock-section {
     display: flex;
+    height: 100%;
     justify-content: center;
+    align-items: center;
 }
