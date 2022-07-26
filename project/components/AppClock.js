@@ -20,11 +20,15 @@ class AppClock extends HTMLElement {
         .clock > .time-mark {
           font-size: 2.5rem;
         }
-      `
+      `;
     }
 
     connectedCallback() {
-      this.#render()
+      this.#render();
+    }
+
+    disconnectedCallback() {
+      clearInterval(this.intervalId);
     }
 
     #render() {
@@ -37,28 +41,28 @@ class AppClock extends HTMLElement {
     }
 
     #parseDateToDisplayHours() {
-      return this.#displayIn12HoursFormat()
+      return this.#displayIn12HoursFormat();
     }
 
     #displayIn24HoursFormat() {
-      let currentHour = this.currentDate.getHours()
-      let currentMinute = this.currentDate.getMinutes()
-      return `${this.#formatDigit(currentHour)}:${this.#formatDigit(currentMinute)}`
+      let currentHour = this.currentDate.getHours();
+      let currentMinute = this.currentDate.getMinutes();
+      return `${this.#formatDigit(currentHour)}:${this.#formatDigit(currentMinute)}`;
     }
 
     #displayIn12HoursFormat() {
-      let currentHour = this.currentDate.getHours()
-      let currentMinute = this.currentDate.getMinutes()
-      let timeMark = 'AM'
+      let currentHour = this.currentDate.getHours();
+      let currentMinute = this.currentDate.getMinutes();
+      let timeMark = 'AM';
       if (currentHour > 12) {
-        currentHour = currentHour % 12
-        timeMark = 'PM'
+        currentHour = currentHour % 12;
+        timeMark = 'PM';
       }
-      return `${this.#formatDigit(currentHour)}:${this.#formatDigit(currentMinute)}<span class = "time-mark">${timeMark}</span>`
+      return `${this.#formatDigit(currentHour)}:${this.#formatDigit(currentMinute)}<span class = "time-mark">${timeMark}</span>`;
     }
 
     #formatDigit(number) {
-      return number > 9? number: `0${number}`
+      return number > 9? number: `0${number}`;
     }
 
     #updateDate() {
