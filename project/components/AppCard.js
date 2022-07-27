@@ -15,14 +15,15 @@ class AppCard extends HTMLElement {
             justify-content: center;
             align-items: center;
 
-            max-width: 10rem;
+            min-width: 5rem;
+            height: 7rem;
             color: var(--text);
             border-radius: 0.5rem;
             border: 1px solid var(--border);
             background: var(--background-contrast);
             
-            margin: 2rem;
-            padding: 4rem;
+            margin: 1rem;
+            padding: 2rem;
 
             transition: 0.2s;
         }
@@ -38,7 +39,7 @@ class AppCard extends HTMLElement {
             background: var(--border);
             outline: 2px solid var(--primary);
 
-            transform: scale(1.02);
+            transform: rotate(-2deg);
         }
 
         .app-card > .card-icon {
